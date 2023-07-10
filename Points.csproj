@@ -5,13 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AjaxControlToolkit" Version="20.1.0" />
+    <PackageReference Include="Highlight.js" Version="1.0.4" />
     <PackageReference Include="KendoUICore" Version="2023.2.606" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.1.2" />
+    <PackageReference Include="MicrosoftAjax" Version="4.0.20526" />
   </ItemGroup>
 
 </Project>

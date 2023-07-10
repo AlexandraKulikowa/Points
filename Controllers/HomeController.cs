@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Points.Interfaces;
+using System.Threading.Tasks;
 
 namespace Points.Controllers
 {
@@ -16,16 +17,18 @@ namespace Points.Controllers
             return View();
         }
 
+
         [HttpGet]
-        public JsonResult GetPoints()
+        public async Task<JsonResult> GetPointsAsync()
         {
-            return Json(repository.GetPoints());
+            var points = await repository.GetPointsAsync();
+            return Json(points);
         }
 
         [HttpPost]
-        public JsonResult DeletePoint(int id)
+        public async Task<JsonResult> DeletePointAsync(int pointId)
         {
-            if (repository.DeletePointById(id))
+            if (await repository.DeletePointByIdAsync(pointId))
             {
                 return Json(true);
             }

@@ -1,12 +1,11 @@
-﻿using System;
-
-namespace Points.Models
+﻿namespace Points.Models
 {
     public class Comment
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public Color BackgroundColor { get; set; }
-        public Point Point { get; set; }
+        public string BackgroundColor { get; set; }
+        public int PointId { get; set; }
+
     }
 }

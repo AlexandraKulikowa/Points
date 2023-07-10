@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Points.Models;
 
-namespace Points
+namespace Points.Database
 {
     public class DatabaseContext : DbContext
 
@@ -16,72 +16,84 @@ namespace Points
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Point>()
-                .HasData(
-                    new Point[]
-                    {
-                        new Point { Id = 1, X = 100, Y = 400, Radius = 20, Color = Color.Grey },
-                        new Point { Id = 2, X = 300, Y = 400, Radius = 35, Color = Color.Red }
-                    });
+            modelBuilder.Entity<Point>().HasData(
+                new Point
+                {
+                    PointId = 1,
+                    X = 250,
+                    Y = 200,
+                    Radius = 7,
+                    Color = "Lightgrey"
+                },
+                new Point
+                {
+                    PointId = 2,
+                    X = 450,
+                    Y = 200,
+                    Radius = 14,
+                    Color = "Red"
+                }
+            );
 
-
-            modelBuilder.Entity<Comment>()
-                .HasData(new
+            modelBuilder.Entity<Comment>().HasData(
+                new Comment
                 {
                     Id = 1,
                     Text = "comment 1",
-                    BackgroundColor = Color.White,
+                    BackgroundColor = "White",
                     PointId = 1
                 },
-                new
+                new Comment
                 {
                     Id = 2,
                     Text = "comment 2",
-                    BackgroundColor = Color.Yellow,
+                    BackgroundColor = "Yellow",
                     PointId = 1
                 },
-                new
+                new Comment
                 {
                     Id = 3,
                     Text = "comment 3",
-                    BackgroundColor = Color.White,
+                    BackgroundColor = "White",
                     PointId = 2
                 },
-                new
+                new Comment
                 {
                     Id = 4,
                     Text = "comment 4",
-                    BackgroundColor = Color.Grey,
+                    BackgroundColor = "Grey",
                     PointId = 2
                 },
-                new
+                new Comment
                 {
                     Id = 5,
                     Text = "comment 5",
-                    BackgroundColor = Color.White,
+                    BackgroundColor = "White",
                     PointId = 2
                 },
-                new
+                new Comment
                 {
                     Id = 6,
                     Text = "comment 6 looooooooooooong comment",
-                    BackgroundColor = Color.Yellow,
+                    BackgroundColor = "Yellow",
                     PointId = 2
                 },
-                new
+                new Comment
                 {
                     Id = 7,
                     Text = "comment 7",
-                    BackgroundColor = Color.Grey,
+                    BackgroundColor = "Grey",
                     PointId = 2
                 },
-                new
+                new Comment
                 {
                     Id = 8,
                     Text = "comment 8",
-                    BackgroundColor = Color.White,
+                    BackgroundColor = "White",
                     PointId = 2
-                });
+                }
+            );
         }
+
     }
 }

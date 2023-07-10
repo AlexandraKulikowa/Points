@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Points.Database;
 using Points.Interfaces;
 using Points.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace Points.Repositories
 {
@@ -16,18 +16,21 @@ namespace Points.Repositories
             this.dbContext = dbContext;
         }
 
-        public List<Point> GetPoints()
+        public async Task<List<Point>> GetPointsAsync()
         {
-            var points = dbContext.Points
+            var points = await dbContext.Points
                 .Include(x => x.Comments)
-                .ToList();
-            return points; 
+                .ToListAsync();
+            return points;
         }
-
-        public bool DeletePointById(int id)
+        
+        public async Task<bool> DeletePointByIdAsync(int pointId)
         {
-            var existingPoint = dbContext.Points.Where(x => x.Id == id).FirstOrDefault();
-            if(existingPoint != null)
+            var existingPoint = await dbContext.Points
+                .Include(x => x.Comments)
+                .FirstOrDefaultAsync(x => x.PointId == pointId);
+
+            if (existingPoint != null)
             {
                 dbContext.Points.Remove(existingPoint);
                 dbContext.SaveChanges();

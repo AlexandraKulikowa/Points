@@ -1,12 +1,12 @@
 ﻿using Points.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Points.Interfaces
 {
     public interface IRepository
     {
-        List<Point> GetPoints();
-        bool DeletePointById(int id);
-
+        Task<List<Point>> GetPointsAsync();
+        Task<bool> DeletePointByIdAsync(int pointId);
     }
 }

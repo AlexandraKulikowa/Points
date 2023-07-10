@@ -3,36 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Points</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] Points</title>
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.2.714/styles/kendo.common.min.css">
-    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.2.714/styles/kendo.default.min.css">
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="~\Kendo\js\kendo.all.min.js"></script>
-@*    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/konva@9.2.0/lib/index.min.js"></script>
-    <script src="https://unpkg.com/konva@8/konva.min.js"></script>
-    <script type="text/javascript" src="site.js"></script>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
 </head>
 <body>
     @await Html.PartialAsync("Header");
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
+    @RenderBody()
     @await Html.PartialAsync("Footer");
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-@*    <script src="https://unpkg.com/konva@9/konva.min.js"></script>*@
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdn.jsdelivr.net/gh/konvajs/konva@1.2.2/konva.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
-
-
-
 </body>
 </html>
