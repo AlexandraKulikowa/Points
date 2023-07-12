@@ -1,7 +1,7 @@
 ﻿function GetPoints() {
     $.ajax({
         type: 'GET',
-        url: '/Home/GetPoints',
+        url: 'Home/GetPoints',
         dataType: 'json',
         success: function (data) {
             var width = window.innerWidth;
@@ -28,7 +28,7 @@
                     var id = e.currentTarget.attrs.name;
                     $.ajax({
                         type: 'POST',
-                        url: '/Home/DeletePoint',
+                        url: 'Home/DeletePoint',
                         dataType: 'text',
                         data: { pointid: id },
                         success: function (response) {
@@ -77,7 +77,7 @@
                         })
                     );
                     group.add(comment)
-                    currentPosition += 23;
+                    lowPosition += 23;
                 }
                 layer.add(group);
             }
